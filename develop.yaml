@@ -3,7 +3,5 @@
   tasks:
     - name: "Install httpd package"
       yum:
-        name:
-          - httpd
-          - vim
+        name: [httpd, vim, nginx]
         state: latest
