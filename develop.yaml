@@ -1,7 +1,7 @@
-- name: Installation
+- name: "Installation"
   hosts: server
   tasks:
-    - name: Install httpd package
+    - name: "Install httpd package"
       yum:
         name:
           - httpd
