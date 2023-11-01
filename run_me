@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-   ANSIBLE_PRIVATE_KEY=credentials('639cd92e-ec5e-426c-89fa-b922e46aa3f6') 
+   ANSIBLE_PRIVATE_KEY=credentials('pipe') 
   }
   stages {
     stage('Hello') {
