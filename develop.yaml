@@ -1,0 +1,7 @@
+- name: Installation
+  hosts: server
+  tasks:
+    - name: Install httpd package
+      yum:
+        name: httpd
+        state: latest
