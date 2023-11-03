@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define 'db1' do |dbvm|
-    dbvm.vm.box = 'centos/7'
+    dbvm.vm.box = 'ubuntu/trusty64'
     dbvm.vm.provider 'virtualbox' do |vc|
       vc.name = 'db1'
     end
@@ -39,6 +39,7 @@ Vagrant.configure("2") do |config|
     master.vm.box = "centos/7"
     master.vm.provider "virtualbox" do |vb|
       vb.name = 'master'
+      vb.memory = 1024
     end
     master.vm.hostname = 'master'
     master.vm.network :private_network, ip: '192.168.56.110'
@@ -69,7 +70,7 @@ Vagrant.configure("2") do |config|
       echo '192.168.56.101' >> /etc/ansible/hosts
       echo '[Task-8] Ansible check'
       ansible all -m ping --one-line
-      echo '[Task-9] jenkins install'
+      echo '[Task-9] Jenkins install'
       yum update -y
       yum install wget epel-release java-11-openjdk -y
       wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
@@ -79,6 +80,7 @@ Vagrant.configure("2") do |config|
       systemctl enable jenkins
       systemctl start jenkins
       systemctl status jenkins
+      systemctl stop jenkins
     SHELL
   end
 end
